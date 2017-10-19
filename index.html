@@ -11,8 +11,12 @@
   	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
   	  <!-- Custom CSS -->
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+ 	 <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  	 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<!--firebase-->
+	<script src="https://www.gstatic.com/firebasejs/4.5.2/firebase.js"></script>
+
 
 </head>
 <body>
@@ -81,7 +85,8 @@
 
               <!-- Here we capture the destination  -->
               <div class="form-group">
-                <label for="pwd">Destination</label>
+                <label for="destination">Destination</label>
+                <input type="text" class="form-control" id="destination">
               </div>
 
               <!-- Here we capture the first train time-->
@@ -93,11 +98,11 @@
               <!-- Here we capture the Frequency -->
               <div class="form-group">
                 <label for="Frequency">Frequency (min)</label>
-                <input type="text" class="form-control" id="end-year">
+                <input type="text" class="form-control" id="frequency">
               </div>
 
               <!-- Here we have our final submit button -->
-              <button type="submit" class="btn btn-success" id="run-search"><i class="fa fa-search"></i> Submit</button>
+              <button type="submit" class="btn btn-success" id="submit"><i class="fa fa-search"></i> Submit</button>
      
             </form>
           </div>
