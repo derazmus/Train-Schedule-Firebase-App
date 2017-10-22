@@ -66,34 +66,26 @@ $("#submit").on("click", function(event) {
 
 database.ref().on("child_added", function(childSnapshot) {
 
- 
+//calculations needed
 
-  		nextTrain =moment().diff(moment(currentTime),"");
-  		//totalBilled = monthsWorked * (childSnapshot.val().monthlyRate);
+	var firstTimeConverted = moment(firstTrain, "hh:mm").subtract(1, "days");
 
+ 	var timeDiff = moment().diff(moment(firstTimeConverted), "minutes");
+    //console.log("Difference in time: " + timeDiff);
 
-      	var myRow = $("<tr>");
-      	var myData = $("<td>");
-      	myData.html(childSnapshot.val().trainName);
-      	myRow.append(myData);
+    var remainder = timeDiff % frequency;
+    //console.log("Remainder: " + remainder);
 
-       	myData = $("<td>");
-      	myData.html(childSnapshot.val().destination);
-      	myRow.append(myData);
+    var minsUntilTrain = frequency - remainder;
+    //console.log("Time till Train: " + minsUntilTrain);
 
-       	//myData = $("<td>");
-      	//myData.html(childSnapshot.val().firstTrain);
-      	//myRow.append(myData);
+    var nextTrainTime = moment().add(minsUntilTrain, "minutes");
+    //console.log("Next arrival: " + moment(nextTrainTime).format("hh:mm"));
+  		
 
-       	myData = $("<td>");
-      	myData.html(childSnapshot.val().frequency);
-      	myRow.append(myData);
-
-       	//myData = $("<td>");
-      	//myData.html(totalBilled);
-      	//myRow.append(myData);
-   
-	    $("tbody").append(myRow);
+ // Add each train's data into the table
+    $("#schedule > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" +
+        frequency + "</td><td>" + moment(nextTrainTime).format("hh:mm") + "</td><td>" + minsUntilTrain + "</td></tr>");
 
 	     // Handle the errors
     }, function(errorObject) {
