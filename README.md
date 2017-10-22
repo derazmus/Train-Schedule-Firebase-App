@@ -1,5 +1,12 @@
 # homework7
 
+https://derazmus.github.io/homework7/
+
+Used: 
+Bootstrap 3.3.7
+JQuery
+Firebase
+
 Overview
 
 In this assignment, you'll create a train schedule application that incorporates Firebase to host arrival and departure data. Your app will retrieve and manipulate this information with Moment.js. This website will provide up-to-date information about various trains, namely their arrival times and how many minutes remain until they arrive at their station.
