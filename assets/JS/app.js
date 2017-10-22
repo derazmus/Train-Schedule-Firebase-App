@@ -1,11 +1,11 @@
 
   // Initialize Firebase
-  var config = {
+   var config = {
     apiKey: "AIzaSyAqY_cDn9KnKnvPZeHqhhtUWlPQc4xz1dg",
     authDomain: "trainschedule-e29a5.firebaseapp.com",
     databaseURL: "https://trainschedule-e29a5.firebaseio.com",
     projectId: "trainschedule-e29a5",
-    storageBucket: "",
+    storageBucket: "trainschedule-e29a5.appspot.com",
     messagingSenderId: "160276224936"
   };
 
@@ -21,6 +21,13 @@ var trainName = "";
 var destination = "";
 var firstTrain = 0;
 var frequency = 0;
+var currentTime= moment()
+
+// updates clock
+
+setInterval(function(){
+        $("#current-time").html(moment(moment()).format("hh:mm:ss"));
+    }, 1000);
 
   // 2. Button for adding Trains
 $("#submit").on("click", function(event) {
@@ -35,8 +42,16 @@ $("#submit").on("click", function(event) {
 
 	frequency = $("#frequency").val().trim();
 
-//console log worked up to here. 
+// Clears all of the text-boxes
+  $("#trainName").val("");
+  $("#destination").val("");
+  $("#firstTrain").val("");
+  $("#frequency").val("");
 
+
+
+
+//pushes to database
   database.ref().push({
 
 	    trainName: trainName,
@@ -47,11 +62,13 @@ $("#submit").on("click", function(event) {
 	});
 });
 
+ 
+
 database.ref().on("child_added", function(childSnapshot) {
 
  
 
-  		//monthsWorked = moment().diff(moment(startDate),"months");
+  		nextTrain =moment().diff(moment(currentTime),"");
   		//totalBilled = monthsWorked * (childSnapshot.val().monthlyRate);
 
 
