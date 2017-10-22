@@ -38,10 +38,10 @@
         <br>
         <!-- First panel is for handling train schedule -->
         <div class="panel panel-success">
-          <div class="panel-heading">
-            <h3 class="panel-title"><strong><i class="fa  fa-list-alt"></i> Current Train Schedule</strong></h3>
-           <br><h3>Current time:<span id= "current-time"></span></h3>
+          <div class="panel-heading" id= "heading">
+            <h3 class="panel-title"><strong><i class="fa  fa-list-alt"></i> Current Train Schedule <h3 class="glyphicon glyphicon-hourglass">Current Time:<i id= "current-time"></i></strong></h3></h3>
           </div>
+
           <div class="panel-body">
 
          <table class="table table-striped" id="schedule">
@@ -84,25 +84,25 @@
               <!-- Here we create the text box for capturing the imput term-->
               <div class="form-group">
                 <label for="trainName">Train Name</label>
-                <input type="text" class="form-control" id="trainName">
+                <input type="text" class="form-control" id="trainName" placeholder="Denise Express">
               </div>
 
               <!-- Here we capture the destination  -->
               <div class="form-group">
                 <label for="destination">Destination</label>
-                <input type="text" class="form-control" id="destination">
+                <input type="text" class="form-control" id="destination" placeholder="La La Land">
               </div>
 
               <!-- Here we capture the first train time-->
               <div class="form-group">
                 <label for="firstTrain"> First Train Time (HH:mm-military time)</label>
-                <input type="text" class="form-control" id="firstTrain">
+                <input type="text" class="form-control" id="firstTrain" placeholder="06:00">
               </div>
 
               <!-- Here we capture the Frequency -->
               <div class="form-group">
                 <label for="Frequency">Frequency (min)</label>
-                <input type="text" class="form-control" id="frequency">
+                <input type="text" class="form-control" id="frequency" placeholder="10">
               </div>
 
               <!-- Here we have our final submit button -->
