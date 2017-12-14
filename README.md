@@ -1,4 +1,4 @@
-# homework7
+# Train Schedule Firebase App
 
 https://derazmus.github.io/homework7/
 
